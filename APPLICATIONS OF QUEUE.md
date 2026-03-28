@@ -33,10 +33,61 @@ To write a Python program to implement CPU Process Scheduling using a queue.
 
 ```
 
+# Function to Calculate waiting time
+# and average waiting time
+def CalculateWaitingTime(at, bt, N):
+
+	# Declare the array for waiting
+	# time
+	wt = [0]*N;
+
+	# Waiting time for first process
+	# is 0
+	wt[0] = 0;
+
+	# Print waiting time process 1
+	print("P.No.\tArrival Time\t" , "Burst Time\tWaiting Time");
+	print("1" , "\t\t" , at[0] , "\t\t" , bt[0] , "\t\t" , wt[0]);
+	for i in range(1,5):
+	    wt[i]=(at[i-1]+bt[i-1]+wt[i-1])-at[i];
+	    print(i+1,"\t\t",at[i],"\t\t",bt[i],"\t\t",wt[i])
+
+
+	# Declare variable to calculate
+	# average
+	average = 0.0;
+	sum = 0;
+	for i in range(5):
+	    sum=sum+wt[i]
+	    average=sum/5
+	print("Average waiting time = ",average)
+
+# Driver code
+
+	# Number of process
+N = 5;
+
+	# Array for Arrival time
+at = [ 0, 1, 2, 3, 4 ];
+
+	# Array for Burst Time
+bt=[]
+for i in range(0, 5):
+    ele = int(input())
+    bt.append(ele)
+	
+
+	# Function call to find
+	# waiting time
+CalculateWaitingTime(at, bt, N);
+
+
 ```
 
 ### OUTPUT
+<img width="1160" height="496" alt="image" src="https://github.com/user-attachments/assets/6e95b92d-971b-4b20-a3f3-57c96aee01e8" />
+
 
 
 ### RESULT
-
+Thus the Application OF QUEUE implemented and verifed successfully.
